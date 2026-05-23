@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    container_name: devops-app
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3002:3000"
