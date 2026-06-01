@@ -6,6 +6,7 @@ services:
     ports:
       - "3001:3001"
     container_name: devops-app
+    restart: always
 
   prometheus:
     image: prom/prometheus
